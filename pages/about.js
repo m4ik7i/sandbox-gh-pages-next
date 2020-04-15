@@ -1,13 +1,14 @@
 import Link from 'next/link';
+import { ThemeProvider } from 'theme-ui';
+import theme from '@rebass/preset';
+import { Button } from 'rebass';
 
 export default () => (
-  <div>
-    <div>About us</div>
-    <div>
-      Back to{' '}
-      <Link href="/" as={process.env.BACKEND_URL + '/'}>
-        <a>Home</a>
-      </Link>
-    </div>
-  </div>
+  <ThemeProvider theme={theme}>
+    <Link href="/" as={process.env.BACKEND_URL + '/'}>
+      <Button variant="secondary" css={{ margin: '16px 0 0 16px' }}>
+        Home
+      </Button>
+    </Link>
+  </ThemeProvider>
 );
